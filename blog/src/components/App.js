@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const App = () => {
-  const putRows = () => [
+class App extends Component {
+  putRows = () => [
     <tr>
       <td>
         Yulieth
@@ -24,31 +24,31 @@ const App = () => {
       marco.com
     </td>
   </tr>
-
   ];
 
-  return (
-    <div className="margen">
-    <table className="tabla">
-      <thead>
-        <tr>
-          <th>
-            Nombre
-          </th>
-          <th>
-            Correo
-          </th>
-          <th>
-            Enlace
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-          {putRows()}
-      </tbody>
-      </table>
-      </div>
-  );
+  render(){
+    return (
+      <div className="margen">
+      <table className="tabla">
+        <thead>
+          <tr>
+            <th>
+              Nombre
+            </th>
+            <th>
+              Correo
+            </th>
+            <th>
+              Enlace
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            {this.putRows()}
+        </tbody>
+        </table>
+        </div>
+    );
 }
-
+}
 export default App;
