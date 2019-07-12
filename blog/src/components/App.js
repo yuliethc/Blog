@@ -1,63 +1,14 @@
-import React, { Component } from 'react';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Menu from "./menu";
+import Usuarios from "./usuarios";
+import Tareas from "./usuarios/tareas";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      usuarios: [
-        {
-          nombre: 'Yulieth',
-          correo: 'yuliethdotcom@gmail.com',
-          enlace: 'yulieth.com'
-        },
-        {
-          nombre: 'Marco',
-          correo: 'marco@gmail.com',
-          enlace: 'marco.com'
-        }
-      ]
-    }
-}
-
-  putRows = () => (
-    this.state.usuarios.map((usuario) => (
-      <tr>
-        <td>
-          {usuario.nombre}
-        </td>        
-        <td>
-          {usuario.correo}
-        </td>        
-        <td>
-          {usuario.enlace}
-        </td>
-  </tr>
-))
-  );
-
-  render(){
-    return (
-      <div className="margen">
-      <table className="tabla">
-        <thead>
-          <tr>
-            <th>
-              Nombre
-            </th>
-            <th>
-              Correo
-            </th>
-            <th>
-              Enlace
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-            {this.putRows()}
-        </tbody>
-        </table>
-        </div>
-    );
-}
-}
+const App = () => (
+  <BrowserRouter>
+    <Menu />
+    <Route exact path='/' component={Usuarios}/>
+    <Route exact path='/tareas' component={Tareas}/>
+  </BrowserRouter>
+);
 export default App;
